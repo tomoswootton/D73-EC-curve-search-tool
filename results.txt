@@ -1,19 +1,121 @@
 
-Results for curve: a,b,p: 0,7,71389 u,v,w: 27181,26687,0
-+ix4^{4} = 0
-+ix2^{4}-ix3^{4} = 0
-+ix4^{3} = 0
--ix2^{3}+ix3^{3} = 0
-+ix3*ix4 = 0
-+ix2*ix4 = 0
-+ix1*ix4 = 0
-+ix1*ix2-ix1*ix3 = 0
-+ix4 = 0
--ix2+ix3 = 0
-
-Results for curve: a,b,p: 3,11,179 point X,Y: 152,37 u,v: 17,25
+Results for Isogency on curve: a,b,p: 3,11,179 point X,Y: 152,37 u,v: 17,25
 +ix3^{4}-ix4^{4} = 0
 -ix3^{3}+ix4^{3} = 0
 +ix2*ix3-ix2*ix4 = 0
 -ix1*ix3+ix1*ix4 = 0
 +ix3-ix4 = 0
+
+Results for Isogency on curve: a,b,p: 3,11,179 point X,Y: 152,37 u,v: 17,25
++ix3^{4}-ix4^{4} = 0
+-ix3^{3}+ix4^{3} = 0
++ix2*ix3-ix2*ix4 = 0
+-ix1*ix3+ix1*ix4 = 0
++ix3-ix4 = 0
+
+Results for Isogency on curve: a,b,p: 3,11,179 point X,Y: 152,37 u,v: 17,25
++ix3^{4}-ix4^{4} = 0
+-ix3^{3}+ix4^{3} = 0
++ix2*ix3-ix2*ix4 = 0
+-ix1*ix3+ix1*ix4 = 0
++ix3-ix4 = 0
+
+Results for Isogency on curve: a,b,p: 3,11,179 point X,Y: 152,37 u,v: 17,25
++ix3^{4}-ix4^{4} = 0
+-ix3^{3}+ix4^{3} = 0
++ix2*ix3-ix2*ix4 = 0
+-ix1*ix3+ix1*ix4 = 0
++ix3-ix4 = 0
+
+Results for Scalar multiplication on curve: a,b,p: 0,3,71389 u,v,w: 27181,26687,0
++ix4^{4} = 0
++ix4^{3} = 0
++ix3*ix4 = 0
++ix2*ix4 = 0
++ix1*ix4 = 0
++ix4 = 0
+
+Results for Scalar multiplication on curve: a,b,p: 0,3,71389 u,v,w: 27181,26687,6672
++ix4^{4} = 0
++ix4^{3} = 0
++ix3*ix4 = 0
++ix2*ix4 = 0
++ix1*ix4 = 0
++ix4 = 0
+
+Results for Scalar multiplication on curve: a,b,p: 0,6,71389 u,v,w: 27181,26687,6672
++ix2^{4}-ix3^{4} = 0
+-ix2^{3}+ix3^{3} = 0
++ix2*ix4-ix3*ix4 = 0
+-ix1*ix2+ix1*ix3 = 0
++ix2-ix3 = 0
+
+Results for Scalar multiplication on curve: a,b,p: 0,3,71389 u,v,w: 27181,26687,6672
++ix2^{4}-ix3^{4} = 0
+-ix2^{3}+ix3^{3} = 0
++ix2*ix4-ix3*ix4 = 0
+-ix1*ix2+ix1*ix3 = 0
++ix2-ix3 = 0
+
+Results for Scalar multiplication on curve: a,b,p: 0,3,71389 u,v,w: 27181,26687,6672
++ix2^{4}-ix3^{4} = 0
+-ix2^{3}+ix3^{3} = 0
++ix2*ix4-ix3*ix4 = 0
+-ix1*ix2+ix1*ix3 = 0
++ix2-ix3 = 0
+
+Results for Scalar multiplication on curve: a,b,p: 0,3,71389 u,v,w: 27181,26687,6672
++ix2^{4}-ix3^{4} = 0
+-ix2^{3}+ix3^{3} = 0
++ix2*ix4-ix3*ix4 = 0
+-ix1*ix2+ix1*ix3 = 0
++ix2-ix3 = 0
+
+Results for Scalar multiplication on curve: a,b,p: 0,7,8999 u,v,w: 27181,26687,6672
++ix2^{4}-ix3^{4} = 0
+-ix2^{3}+ix3^{3} = 0
++ix2*ix4-ix3*ix4 = 0
+-ix1*ix2+ix1*ix3 = 0
++ix2-ix3 = 0
+
+Results for Scalar multiplication on curve: a,b,p: 0,8983,307 u,v,w: 27181,26687,6672
++ix2^{4}-ix3^{4} = 0
+-ix2^{3}+ix3^{3} = 0
++ix2*ix4-ix3*ix4 = 0
+-ix1*ix2+ix1*ix3 = 0
++ix2-ix3 = 0
+
+Results for Scalar multiplication on curve: a,b,p: 0,8984,307 u,v,w: 27181,26687,6672
++ix1^{4}-ix2^{4} = 0
+-ix1^{3}+ix2^{3} = 0
++ix1*ix4-ix2*ix4 = 0
+-ix1*ix3+ix2*ix3 = 0
++ix1-ix2 = 0
+
+Results for Scalar multiplication on curve: a,b,p: 0,8983,307 u,v,w: 27181,26687,6672
++ix1^{4}-ix2^{4} = 0
+-ix1^{3}+ix2^{3} = 0
++ix1*ix4-ix2*ix4 = 0
+-ix1*ix3+ix2*ix3 = 0
++ix1-ix2 = 0
+
+Results for Scalar multiplication on curve: a,b,p: 0,8997,307 u,v,w: 27181,26687,6672
++187*1-146*ix1+567*ix2+90*ix3+508*ix4-33*ix1*ix2-295*ix1*ix3+194*ix1*ix4+98*ix2*ix3-574*ix2*ix4+337*ix3*ix4+444*ix1^{3}-533*ix2^{3}+424*ix3^{3}-34*ix4^{4} = 0
+-383*1-249*ix1-127*ix2-159*ix3+327*ix4+420*ix1*ix2+296*ix1*ix3+287*ix1*ix4+547*ix2*ix3+219*ix2*ix4-274*ix3*ix4+101*ix1^{3}-326*ix2^{3}-510*ix3^{3}+556*ix3^{4} = 0
++17*1-243*ix1+366*ix2+100*ix3+101*ix4+148*ix1*ix2+81*ix1*ix3-443*ix1*ix4-7*ix2*ix3-215*ix2*ix4-476*ix3*ix4-21*ix1^{3}-540*ix2^{3}+455*ix3^{3}+306*ix2^{4} = 0
++240*1-9*ix1+52*ix2+341*ix3+28*ix4+525*ix1*ix3-414*ix1*ix4+317*ix2*ix3+486*ix2*ix4-350*ix3*ix4-265*ix1^{3}+350*ix2^{3}-131*ix3^{3}+261*ix1^{4} = 0
++147*1-71*ix1+175*ix2+444*ix3+277*ix4+75*ix1*ix2+352*ix1*ix3-545*ix1*ix4-2*ix2*ix3-204*ix2*ix4+241*ix3*ix4+325*ix1^{3}+427*ix2^{3}-289*ix3^{3}-261*ix4^{3} = 0
+
+Results for Scalar multiplication on curve: a,b,p: 0,8999,307 u,v,w: 27181,26687,6672
++ix1^{4}-ix2^{4} = 0
+-ix1^{3}+ix2^{3} = 0
++ix1*ix4-ix2*ix4 = 0
+-ix1*ix3+ix2*ix3 = 0
++ix1-ix2 = 0
+
+Results for Scalar multiplication on curve: a,b,p: 0,8983,307 u,v,w: 27181,26687,6672
++ix1^{4}-ix2^{4} = 0
+-ix1^{3}+ix2^{3} = 0
++ix1*ix4-ix2*ix4 = 0
+-ix1*ix3+ix2*ix3 = 0
++ix1-ix2 = 0
