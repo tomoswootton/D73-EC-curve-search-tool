@@ -4,9 +4,18 @@ Currenlty scalar multiplaction and isogeny ECCCode generators are implemented.
 
 Output polynomial relations are saved to results.txt only if a relation is found. The next question is how to process the data to automatically identify nice relations, ideas welcome.
 
+GitHub: https://github.com/tomoswootton/D73-EC-curve-search-tool 
+
+------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+DEPENDENCIES:	
+
+This program requires Pyton ^2.7, Sage and Wine (Linux)
 ------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------
 USAGE:
+
+run with: sage findPolyRelation.sage
 
 set cmd to your ax64 command
 	eg = "wine ax64.exe 939111 1 2 2 2 1153 ECCcode.txt"

@@ -1,4 +1,32 @@
 
+Results for Scalar multiplication on curve: a,b,p: 0,7,71389 u,v,w: 27181,26687,3673
++ix2^{4}-ix3^{4} = 0
+-ix2^{3}+ix3^{3} = 0
++ix2*ix4-ix3*ix4 = 0
+-ix1*ix2+ix1*ix3 = 0
++ix2-ix3 = 0
+
+Results for Scalar multiplication on curve: a,b,p: 0,7,71389 u,v,w: 27181,26687,3674
++ix2^{4}-ix3^{4} = 0
+-ix2^{3}+ix3^{3} = 0
++ix2*ix4-ix3*ix4 = 0
+-ix1*ix2+ix1*ix3 = 0
++ix2-ix3 = 0
+
+Results for Scalar multiplication on curve: a,b,p: 0,7,71389 u,v,w: 27181,26687,3675
++ix2^{4}-ix3^{4} = 0
+-ix2^{3}+ix3^{3} = 0
++ix2*ix4-ix3*ix4 = 0
+-ix1*ix2+ix1*ix3 = 0
++ix2-ix3 = 0
+
+Results for Scalar multiplication on curve: a,b,p: 0,7,71389 u,v,w: 27181,26687,3676
++ix2^{4}-ix3^{4} = 0
+-ix2^{3}+ix3^{3} = 0
++ix2*ix4-ix3*ix4 = 0
+-ix1*ix2+ix1*ix3 = 0
++ix2-ix3 = 0
+
 Results for Isogency on curve: a,b,p: 3,11,179 point X,Y: 152,37 u,v: 0,25
 +ix3^{4}-ix4^{4} = 0
 +ix2^{4} = 0
@@ -51,11 +79,12 @@ Results for Isogency on curve: a,b,p: 3,11,179 point X,Y: 152,37 u,v: 5,25
 +ix3-ix4 = 0
 
 Results for Isogency on curve: a,b,p: 3,11,179 point X,Y: 152,37 u,v: 6,25
-+ix3^{4}-ix4^{4} = 0
--ix3^{3}+ix4^{3} = 0
-+ix2*ix3-ix2*ix4 = 0
--ix1*ix3+ix1*ix4 = 0
-+ix3-ix4 = 0
++151*1-553*ix1+319*ix2+289*ix3+309*ix1*ix2+446*ix1*ix3-549*ix2*ix3-39*ix3*ix4-196*ix1^{3}-493*ix2^{3}+450*ix3^{3}-334*ix1^{4}+198*ix2^{4}+125*ix4^{4} = 0
++151*1-553*ix1+319*ix2+289*ix3+309*ix1*ix2+446*ix1*ix3-549*ix2*ix3-39*ix3*ix4-196*ix1^{3}-493*ix2^{3}+450*ix3^{3}-334*ix1^{4}+198*ix2^{4}+125*ix3^{4} = 0
++125*ix3^{3}-125*ix4^{3} = 0
+-125*ix2*ix3+125*ix2*ix4 = 0
++125*ix1*ix3-125*ix1*ix4 = 0
+-125*ix3+125*ix4 = 0
 
 Results for Isogency on curve: a,b,p: 3,11,179 point X,Y: 152,37 u,v: 7,25
 +ix3^{4}-ix4^{4} = 0
@@ -79,21 +108,11 @@ Results for Isogency on curve: a,b,p: 3,11,179 point X,Y: 152,37 u,v: 9,25
 +ix3-ix4 = 0
 
 Results for Isogency on curve: a,b,p: 3,11,179 point X,Y: 152,37 u,v: 10,25
-+190*1-281*ix1+389*ix2+203*ix3-489*ix4^{4} = 0
-+190*1-281*ix1+389*ix2+203*ix3-489*ix3^{4} = 0
-+388*1+345*ix1+36*ix2+247*ix3-417*ix2^{4} = 0
-+261*1-144*ix1-264*ix2+247*ix3+417*ix1^{4} = 0
--327*1-209*ix1+314*ix2+456*ix3+221*ix4^{3} = 0
--327*1-209*ix1+314*ix2+456*ix3+221*ix3^{3} = 0
--420*1+24*ix1-484*ix2+472*ix3+221*ix2^{3} = 0
-+415*1+17*ix1-72*ix2+201*ix3-103*ix1^{3} = 0
-+298*1-550*ix1+122*ix2+395*ix3+103*ix3*ix4 = 0
-+522*1-521*ix1-385*ix2+236*ix3+103*ix2*ix4 = 0
-+522*1-521*ix1-385*ix2+236*ix3+103*ix2*ix3 = 0
-+226*1+88*ix1+412*ix2+ix3+186*ix1*ix4 = 0
-+226*1+88*ix1+412*ix2+ix3+186*ix1*ix3 = 0
--385*1+193*ix1-447*ix2+389*ix3+186*ix1*ix2 = 0
-+186*ix3-186*ix4 = 0
++ix3^{4}-ix4^{4} = 0
+-ix3^{3}+ix4^{3} = 0
++ix2*ix3-ix2*ix4 = 0
+-ix1*ix3+ix1*ix4 = 0
++ix3-ix4 = 0
 
 Results for Isogency on curve: a,b,p: 3,11,179 point X,Y: 152,37 u,v: 11,25
 +ix3^{4}-ix4^{4} = 0
@@ -138,14 +157,11 @@ Results for Isogency on curve: a,b,p: 3,11,179 point X,Y: 152,37 u,v: 16,25
 +ix3-ix4 = 0
 
 Results for Isogency on curve: a,b,p: 3,11,179 point X,Y: 152,37 u,v: 17,25
-+370*1+199*ix1-76*ix2+107*ix3-338*ix1*ix2-278*ix1*ix3+268*ix2*ix3+576*ix3*ix4-24*ix1^{3}-455*ix2^{3}+129*ix3^{3}+469*ix4^{4} = 0
-+370*1+199*ix1-76*ix2+107*ix3-338*ix1*ix2-278*ix1*ix3+268*ix2*ix3+576*ix3*ix4-24*ix1^{3}-455*ix2^{3}+129*ix3^{3}+469*ix3^{4} = 0
-+125*1+39*ix1-471*ix2-473*ix3-336*ix1*ix2+11*ix1*ix3+95*ix2*ix3+83*ix3*ix4-564*ix1^{3}-451*ix2^{3}+464*ix3^{3}+490*ix2^{4} = 0
-+498*1+500*ix1+514*ix2+192*ix3-228*ix1*ix2-188*ix1*ix3+376*ix2*ix3+423*ix3*ix4-378*ix1^{3}+229*ix2^{3}+508*ix3^{3}+539*ix1^{4} = 0
-+539*ix3^{3}-539*ix4^{3} = 0
--539*ix2*ix3+539*ix2*ix4 = 0
-+539*ix1*ix3-539*ix1*ix4 = 0
--539*ix3+539*ix4 = 0
++ix3^{4}-ix4^{4} = 0
+-ix3^{3}+ix4^{3} = 0
++ix2*ix3-ix2*ix4 = 0
+-ix1*ix3+ix1*ix4 = 0
++ix3-ix4 = 0
 
 Results for Isogency on curve: a,b,p: 3,11,179 point X,Y: 152,37 u,v: 18,25
 +ix3^{4}-ix4^{4} = 0
@@ -230,31 +246,3 @@ Results for Isogency on curve: a,b,p: 3,11,179 point X,Y: 152,37 u,v: 29,25
 +ix2*ix3-ix2*ix4 = 0
 -ix1*ix3+ix1*ix4 = 0
 +ix3-ix4 = 0
-
-Results for Scalar multiplication on curve: a,b,p: 0,7,71389 u,v,w: 27181,26687,3673
-+ix2^{4}-ix3^{4} = 0
--ix2^{3}+ix3^{3} = 0
-+ix2*ix4-ix3*ix4 = 0
--ix1*ix2+ix1*ix3 = 0
-+ix2-ix3 = 0
-
-Results for Scalar multiplication on curve: a,b,p: 0,7,71389 u,v,w: 27181,26687,3674
-+ix2^{4}-ix3^{4} = 0
--ix2^{3}+ix3^{3} = 0
-+ix2*ix4-ix3*ix4 = 0
--ix1*ix2+ix1*ix3 = 0
-+ix2-ix3 = 0
-
-Results for Scalar multiplication on curve: a,b,p: 0,7,71389 u,v,w: 27181,26687,3675
-+ix2^{4}-ix3^{4} = 0
--ix2^{3}+ix3^{3} = 0
-+ix2*ix4-ix3*ix4 = 0
--ix1*ix2+ix1*ix3 = 0
-+ix2-ix3 = 0
-
-Results for Scalar multiplication on curve: a,b,p: 0,7,71389 u,v,w: 27181,26687,3676
-+ix2^{4}-ix3^{4} = 0
--ix2^{3}+ix3^{3} = 0
-+ix2*ix4-ix3*ix4 = 0
--ix1*ix2+ix1*ix3 = 0
-+ix2-ix3 = 0

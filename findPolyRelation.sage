@@ -123,12 +123,12 @@ for w in range(3673,3677):
     print("END")
     print("------------------------------------------------")
 
-# for u in range(0,30):
-#     data = [3,11,179],[152,37],u,25,100
-#     print("------------------------------------------------")
-#     print("START")
-#     print("\nNew data:")
-#     print(data)
-#     findPolyRealations(data,"Isogeny")
-#     print("END")
-#     print("------------------------------------------------")
+for u in range(0,30):
+    data = [3,11,179],[152,37],u,25,100
+    print("------------------------------------------------")
+    print("START")
+    print("\nNew data:")
+    print(data)
+    findPolyRealations(data,"Isogeny")
+    print("END")
+    print("------------------------------------------------")
