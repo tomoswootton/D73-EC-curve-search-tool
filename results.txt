@@ -1,0 +1,19 @@
+
+Results for curve: a,b,p: 0,7,71389 u,v,w: 27181,26687,0
++ix4^{4} = 0
++ix2^{4}-ix3^{4} = 0
++ix4^{3} = 0
+-ix2^{3}+ix3^{3} = 0
++ix3*ix4 = 0
++ix2*ix4 = 0
++ix1*ix4 = 0
++ix1*ix2-ix1*ix3 = 0
++ix4 = 0
+-ix2+ix3 = 0
+
+Results for curve: a,b,p: 3,11,179 point X,Y: 152,37 u,v: 17,25
++ix3^{4}-ix4^{4} = 0
+-ix3^{3}+ix4^{3} = 0
++ix2*ix3-ix2*ix4 = 0
+-ix1*ix3+ix1*ix4 = 0
++ix3-ix4 = 0
