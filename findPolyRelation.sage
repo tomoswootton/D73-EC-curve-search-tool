@@ -14,20 +14,35 @@ def appendResults(data,type):
         for line in fpr:
             res.append(line)
 
-
     #make title
     if type == "ScalarMult":
         title = "\nResults for Scalar multiplication on curve: a,b,p: "+str(data[0][0])+","+str(data[0][1]) \
-         +","+str(data[0][2])+" u,v,w: "+str(data[1])+","+str(data[2])+","+str(data[3])+"\n"
+        +","+str(data[0][2])+" u,v,w: "+str(data[1])+","+str(data[2])+","+str(data[3])+" relations found after filter:\n"
     elif type == "Isogeny":
         title = "\nResults for Isogency on curve: a,b,p: "+str(data[0][0])+","+str(data[0][1]) \
          +","+str(data[0][2])+" point X,Y: "+str(data[1][0])+","+str(data[1][1])+" u,v: "+str(data[2]) \
-         +","+str(data[3])+"\n"
+         +","+str(data[3])+" relations found after filter:\n"
 
     with open('results.txt','a') as fpw:
         fpw.write(title)
         for line in res:
-            fpw.write(line)
+            if filterResult(line):
+                fpw.write(line)
+    fpw.close()
+
+def filterResult(line):
+    if (line[-3] != "0"):
+        print("BUG: line read error")
+        return False
+    if (line.count("+")+line.count("-") > maxNumTerms):
+        return False
+    for i in range(1,len(line)):
+        if line[i] == "{":
+            if int(line[i+1]) > maxDegree:
+                return False;
+    return True
+
+
 
 def makeCurve(curve):
     a,b,p = curve
@@ -35,7 +50,7 @@ def makeCurve(curve):
     try:
         E = EllipticCurve(GF(p),[a,b])
     except (ArithmeticError, ValueError) as e:
-        print("Invalid parameters:",e)
+        print("Invalid curve parameters:",e)
         return False
     return E
 
@@ -85,15 +100,17 @@ def genECCCodeIsogency(data):
 
     return True
 
-def findPolyRealations(data,type):
+def findPolyRealationsAX64(data,type):
     if (type == 'ScalarMult'):
         #back out of funciton if genECCCodeScalarMult returns false
         if not genECCCodeScalarMult(data):
             return
+
     elif (type == 'Isogeny'):
-        #back out of funciton if genECCCodeIso returns false
+        #back out of function if genECCCodeIso returns false
         if not genECCCodeIsogency(data):
             return
+
     else:
         print("ERROR: Invalid type.")
         return
@@ -101,34 +118,20 @@ def findPolyRealations(data,type):
     print("\nECCCode updated, calling ax64\n")
 
     # call ax64
-    subprocess.call(cmd,shell=True)
+    # subprocess.call(["wine", "ax64.exe", "939111", "1 2 2 2", "1153", "ECCcode.txt"])
+    subprocess.call("wine ax64.exe 939111 1 2 2 2 1153 ECCcode.txt",shell=True)
 
     #append reuslts to results.txt
     appendResults(data,type)
 
-#clear IOrelations.txt at the beginning
-fp = open('IOrelations.txt','w')
-fp.write("")
-fp.close()
+    #clear IOrelation.txt
+    with open('IOrelations.txt','w') as fpw:
+        fpw.write("")
+    fpw.close()
 
-cmd = "wine ax64.exe 939111 1 2 2 2 1153 ECCcode.txt"
+maxDegree = 4
+maxNumTerms = 4
 
-for w in range(3673,3677):
-    data = [0,7,71389],27181,26687,w,100
-    print("------------------------------------------------")
-    print("START")
-    print("\nNew data:")
-    print(data)
-    findPolyRealations(data,"ScalarMult")
-    print("END")
-    print("------------------------------------------------")
-
-for u in range(0,30):
-    data = [3,11,179],[152,37],u,25,100
-    print("------------------------------------------------")
-    print("START")
-    print("\nNew data:")
-    print(data)
-    findPolyRealations(data,"Isogeny")
-    print("END")
-    print("------------------------------------------------")
+findPolyRealationsAX64([[0,7,103],32,92,98,1000],"ScalarMult")
+# data = [3,11,179],[152,37],6,25,1000
+# findPolyRealationsAX64(data,"Isogeny")

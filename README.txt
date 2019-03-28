@@ -4,25 +4,22 @@ Currenlty scalar multiplaction and isogeny ECCCode generators are implemented.
 
 Output polynomial relations are saved to results.txt only if a relation is found. The next question is how to process the data to automatically identify nice relations, ideas welcome.
 
-GitHub: https://github.com/tomoswootton/D73-EC-curve-search-tool 
+GitHub: https://github.com/tomoswootton/D73-EC-curve-search-tool
 
 ------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------
-DEPENDENCIES:	
+DEPENDENCIES:
 
 This program requires Pyton ^2.7, Sage and Wine (Linux)
 ------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------
 USAGE:
 
-run with: sage findPolyRelation.sage
+run and edit file main.sage
 
-set cmd to your ax64 command
-	eg = "wine ax64.exe 939111 1 2 2 2 1153 ECCcode.txt"
-
-findPolyRealations(data,type) 
+findPolyRealations(data,type)
 	Takes two arguments for the different operations:
-	for 
+	for
 		type = 'ScalarMult', data = [a,b,p],u,v,w,num
 		type = 'Isogeny', data = [a,b,p],[X,Y],u,v,num
 	where num is the number of rows desired in ECCCode.txt
@@ -30,7 +27,7 @@ findPolyRealations(data,type)
 
 ------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------
-EXAMPLES: 
+EXAMPLES:
 
 The following code will run ax64 curves with 30 different u values 0-30. Results can be viewed in results.txt.
 
@@ -56,7 +53,7 @@ DOCUMENTATION:
 This section is a brief explanation of what each function does for anyone interested in improving/fixing the tool.
 
 findPolyRealations(data,type)
-	Is the main function for each round. It directs the program to the ECC Code generator functions, calls ax64 and calls the append results function. 
+	Is the main function for each round. It directs the program to the ECC Code generator functions, calls ax64 and calls the append results function.
 
 genECCCodeScalarMult(data), genECCCodeIsogency(data)
 	Generate the ECCCode.txt files each round. They generate random G values and write a list of tuples to the file, while making sure to catch type errors for invalid parameters
