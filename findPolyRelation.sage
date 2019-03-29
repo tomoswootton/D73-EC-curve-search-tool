@@ -24,15 +24,18 @@ def appendResults(data,type):
          +","+str(data[3])+" relations found after filter:\n"
 
     with open('results.txt','a') as fpw:
-        fpw.write(title)
         for line in res:
             if filterResult(line):
+                fpw.write(title)
                 fpw.write(line)
     fpw.close()
 
 def filterResult(line):
     if (line[-3] != "0"):
         print("BUG: line read error")
+        return False
+    # remove single term = 0 entries
+    if (line.count("+")+line.count("-") == 1):
         return False
     if (line.count("+")+line.count("-") > maxNumTerms):
         return False
@@ -66,7 +69,11 @@ def genECCCodeScalarMult(data):
         # generate ECC code
         o = open('ECCcode.txt','w')
         for i in range(0,data[4]):
+            #dont let G=0
             G = E.random_element()
+            while(G[0] == 0):
+                G = E.random_element()
+
             o.write(str(G[0])+","+str((u*G)[0])+","+str((v*G)[0])+","+str((w*G)[0])+"\n")
     except (TypeError) as e:
         print("Invalid parameters:",e)
@@ -74,29 +81,44 @@ def genECCCodeScalarMult(data):
 
     return True
 
-
-#data = {[a,b,p],[x,y],u,v,numECCcodeEntries}
-def genECCCodeIsogency(data):
+def makeIsogeny(data):
     try:
-        a,b,p = data[0]
         point = data[1]
-        u,v = data[2], data[3]
         #catch errors for inputs that dont form curves
         E = makeCurve(data[0])
         if not (E):
-            return False
-        #catch errors for inputs that dont form isogencys
+            return False, False
 
+        #gen isogeny
         phi = E.isogeny(E(point))
+        # check 2nd curve isnt the same as 1st
+        if (phi.domain() == phi.codomain()):
+            print("Isogeny 2nd curve same as 1st")
+            return False, False
 
-        #generate ECC code
-        o = open('ECCcode.txt','w')
-        for i in range(0,data[4]):
-            G = E.random_element()
-            o.write(str(G[0])+","+str((u*G)[0])+","+str((phi(G))[0])+","+str((v*phi(G))[0])+"\n")
     except (TypeError) as e:
         print("Invalid parameters:",e)
         return False
+
+    return E,phi
+
+#data = {[a,b,p],[x,y],u,v,numECCcodeEntries}
+def genECCCodeIsogency(data):
+    a,b,p = data[0]
+    point = data[1]
+    u,v = data[2], data[3]
+    E,phi = makeIsogeny(data)
+    if not E:
+        return False
+
+    #generate ECC code
+    o = open('ECCcode.txt','w')
+    for i in range(0,data[4]):
+        #dont let G=0
+        G = E.random_element()
+        while(G[0] == 0):
+            G = E.random_element()
+        o.write(str(G[0])+","+str((u*G)[0])+","+str((phi(G))[0])+","+str((v*phi(G))[0])+"\n")
 
     return True
 
@@ -118,8 +140,8 @@ def findPolyRealationsAX64(data,type):
     print("\nECCCode updated, calling ax64\n")
 
     # call ax64
-    # subprocess.call(["wine", "ax64.exe", "939111", "1 2 2 2", "1153", "ECCcode.txt"])
-    subprocess.call("wine ax64.exe 939111 1 2 2 2 1153 ECCcode.txt",shell=True)
+    cmd = "wine ax64.exe 939111 1 2 2 2 " + str(data[0][2]) + " ECCcode.txt"
+    subprocess.call(cmd,shell=True)
 
     #append reuslts to results.txt
     appendResults(data,type)
@@ -129,9 +151,56 @@ def findPolyRealationsAX64(data,type):
         fpw.write("")
     fpw.close()
 
-maxDegree = 4
-maxNumTerms = 4
+import random
 
-findPolyRealationsAX64([[0,7,103],32,92,98,1000],"ScalarMult")
+maxDegree = 3
+maxNumTerms = 3
+
+for i in range(1,50):
+    data = [0,7,
+    103], \
+    [2,\
+    85],\
+    random.randint(1,103),\
+    random.randint(1,103),\
+    100
+    print(data)
+    findPolyRealationsAX64(data,"Isogeny")
+#
+# for i in range(1,50):
+#     data = [0,7,
+#     103], \
+#     [33,\
+#     93],\
+#     random.randint(1,103),\
+#     random.randint(1,103),\
+#     100
+#     print(data)
+#     findPolyRealationsAX64(data,"Isogeny")
+#
+# for i in range(1,50):
+#     data = [0,7,
+#     103], \
+#     [49,\
+#     37],\
+#     random.randint(1,103),\
+#     random.randint(1,103),\
+#     100
+#     print(data)
+#     findPolyRealationsAX64(data,"Isogeny")
+
+# data = [7,11,179],[2,85],1,2,100
+# findPolyRealationsAX64(data,"Isogeny")
+
+# data = [3,11,179],[152,37],17,25,100
+# findPolyRealationsAX64(data,"Isogeny")
+
+# data = [0,7,103],[49,37],random.randint(1,103),random.randint(1,103),100
+# if makeIsogeny(data):
+#     findPolyRealationsAX64(data,"Isogeny")
+
+
+# findPolyRealationsAX64([[0,7,103],32,92,98,1000],"ScalarMult")
 # data = [3,11,179],[152,37],6,25,1000
 # findPolyRealationsAX64(data,"Isogeny")
+# subprocess.call("wine ax64.exe 939111 1 2 2 2 1153 ECCcode.txt",shell=True)
