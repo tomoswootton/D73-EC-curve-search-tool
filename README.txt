@@ -58,6 +58,9 @@ findPolyRealations(data,type)
 genECCCodeScalarMult(data), genECCCodeIsogency(data)
 	Generate the ECCCode.txt files each round. They generate random G values and write a list of tuples to the file, while making sure to catch type errors for invalid parameters
 
+printECCcodeSamples(curve,u,v,numEntries)
+	prints numEntries ECCcode lines for each isogeny point on the given curve. Use to find interesting ECCcode generators
+
 makeCurve(data)
 	Is its own function just to simplify error catching while generating curves
 

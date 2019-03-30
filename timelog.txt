@@ -1,5 +1,5 @@
 
-//ax64 939111 1 2 2 2 179 ECCcode.txt 
+//ax64 939111 1 2 2 2 107 ECCcode.txt 
 //                   => Stats on behaviour:
          correct key   0/  1 cases
 
