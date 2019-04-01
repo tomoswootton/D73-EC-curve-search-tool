@@ -1,8 +1,8 @@
-This tool is for automatically generating EECCode, inputting it into ax64 and storing the results. The intention is for us to be able to automatically process a large number of curves, parameter, isogeny point combinations (Perhaps on the UCL's servers).
+This tool provides various tools for D73 project. The intention is for us to be able to automatically process a large number of curves, parameter, isogeny point combinations (Perhaps on the UCL's servers). Output polynomial relations are saved to results.txt only if a relation is found and it passes all filters. 
 
-Currenlty scalar multiplaction and isogeny ECCCode generators are implemented.
+Currenlty scalar multiplaction and isogeny ECCCode generators are implemented. As well as a filter for results, automatic special scalar finding and a tool to help find interesting isogeny points.
 
-Output polynomial relations are saved to results.txt only if a relation is found. The next question is how to process the data to automatically identify nice relations, ideas welcome.
+
 
 GitHub: https://github.com/tomoswootton/D73-EC-curve-search-tool
 
