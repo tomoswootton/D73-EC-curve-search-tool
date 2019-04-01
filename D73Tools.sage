@@ -1,4 +1,5 @@
 import subprocess
+import random
 
 def appendResults(data,type):
     with open('IOrelations.txt') as fpr:
@@ -9,10 +10,16 @@ def appendResults(data,type):
         fpr.seek(0) #set fpr pointer back to start of file
 
         print("\nAppending to results\n")
-        #save each results
         res = []
         for line in fpr:
-            res.append(line)
+            # save each result if it matches filter specification
+            if filterResult(line):
+                res.append(line)
+
+    # check if no results made it through filter
+    if len(res) == 0:
+        return
+
 
     #make title
     if type == "ScalarMult":
@@ -24,10 +31,9 @@ def appendResults(data,type):
          +","+str(data[3])+" relations found after filter:\n"
 
     with open('results.txt','a') as fpw:
+        fpw.write(title)
         for line in res:
-            if filterResult(line):
-                fpw.write(title)
-                fpw.write(line)
+            fpw.write(line)
     fpw.close()
 
 def filterResult(line):
@@ -55,7 +61,6 @@ def makeCurve(curve):
         return False
     return E
 
-#data = {[a,b,p],u,v,w,numECCcodeEntries}
 def genECCCodeScalarMult(data):
     try:
         a,b,p = data[0]
@@ -100,7 +105,6 @@ def makeIsogeny(data):
 
     return E,phi
 
-#data = {[a,b,p],[x,y],u,v,numECCcodeEntries}
 def genECCCodeIsogency(data):
     a,b,p = data[0]
     point = data[1]
@@ -156,7 +160,7 @@ def findIsogenies(E):
 
 # function prints numEntries ECCcode lines for each isogeny point
 # use to find interesting ECCcode generators
-def printECCcodeSamples(curve,u,v,numEntries):
+def printIsogenyECCcodeSamples(curve,u,v,numEntries):
     E = makeCurve(curve)
     isos = findIsogenies(E)
     for iso in isos:
@@ -168,33 +172,95 @@ def printECCcodeSamples(curve,u,v,numEntries):
                 print(line)
         fpw.close()
 
-import random
+#Code by Hamy and Luke Roberts
+def rootToScalar(curve):
+    a,b,p = curve
+    #Check some conditions on a, b and p
+    if not p.is_prime():
+        # Not over a finite field of order p
+        return "prime error"
+
+    F = GF(p)
+    if a != 0 and b != 0:
+        return "function defined for a = 0, b = 0"
+
+    rt = 3
+
+    if b == 0:
+        rt += 1
+
+    EC = EllipticCurve(F, [a,b])
+    q = EC.cardinality()
+
+    if (p - 1) % rt != 0:
+        return "no relations of type exist for this curve"
+
+    m, u = var('m','u')
+    q = EC.cardinality()
+    ml = list(solve_mod([m^rt == 1], q))
+    mr = list(solve_mod([m^rt == -1], q))
+    ul = list(solve_mod([u^rt == 1], p))
+    ur = list(solve_mod([u^rt == -1], p))
+    mls = ml + mr
+    uls = ul + ur
+    mls = [x[0] for x in mls if x[0] != 1]
+    uls = [x[0] for x in uls if x[0] != 1]
+
+	# Take cartesian product of the relative roots
+    import itertools
+    checkls = []
+    for element in itertools.product(mls, uls):
+        checkls.append(element)
+    checkls = list(set(checkls));
+
+	# See which ones work over a random sample of points on the curve
+    relations = []
+    for elem in checkls:
+        mtest = int(elem[0])
+        utest = int(elem[1])
+
+        smp = sample(list(EC), 10)
+        flag = 0
+        for P in smp:
+            p1 = (mtest*P)
+            p2 = P
+            px = p1[0]
+            qx = p2[0] * utest
+            if px != qx:
+                flag = 1
+                break
+
+        if flag == 0:
+            relations.append((mtest,utest))
+
+    return relations
+
+
+##############################################################################
+#Control#
+##############################################################################
+
+# Formats
+# curve = [a,b,p]
+#Scalar mult. data = {curve,u,v,w,numECCcodeEntries}
+#Isogeny data = {curve,[x,y],u,v,numECCcodeEntries}
+
 
 maxDegree = 3
 maxNumTerms = 3
 
-#
-# for i in range(1,20):
-#     data = [0,7,
-#     103], \
-#     [33,\
-#     93],\
-#     random.randint(1,103),\
-#     random.randint(1,103),\
-#     100
-#     print(data)
-#     findPolyRealationsAX64(data,"Isogeny")
 
-# for i in range(1,20):
-#     data = [0,7,
-#     107], \
-#     [98,\
-#     54],\
-#     random.randint(1,103),\
-#     random.randint(1,103),\
-#     100
-#     print(data)
-#     findPolyRealationsAX64(data,"Isogeny")
+# EXAMPLES
+print(rootToScalar([0,6,127]))
+printIsogenyECCcodeSamples([0,7,103],2,2,5)
 
-
-printECCcodeSamples([0,7,103],2,2,5)
+for i in range(1,20):
+    data = [0,7,
+    107], \
+    [98,\
+    54],\
+    random.randint(1,103),\
+    random.randint(1,103),\
+    100
+    print(data)
+    findPolyRealationsAX64(data,"Isogeny")
